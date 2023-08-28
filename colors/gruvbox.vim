@@ -574,7 +574,7 @@ else
 endif
 
 call s:HL('Comment', s:gray, s:none, s:italicize_comments)
-call s:HL('Todo', s:vim_fg, s:vim_bg, s:bold . s:italic)
+call s:HL('Todo', s:vim_fg, s:none, s:bold . s:italic)
 call s:HL('Error', s:red, s:vim_bg, s:bold . s:inverse)
 
 " Generic statement
@@ -588,7 +588,7 @@ hi! link Label GruvboxRed
 " try, catch, throw
 hi! link Exception GruvboxRed
 " sizeof, "+", "*", etc.
-hi! link Operator Normal
+hi! link Operator GruvboxFg1
 " Any other keyword
 hi! link Keyword GruvboxRed
 
@@ -944,14 +944,14 @@ call s:HL('htmlLink', s:fg4, s:none, s:underline)
 
 hi! link htmlSpecialChar GruvboxOrange
 
-call s:HL('htmlBold', s:vim_fg, s:vim_bg, s:bold)
-call s:HL('htmlBoldUnderline', s:vim_fg, s:vim_bg, s:bold . s:underline)
-call s:HL('htmlBoldItalic', s:vim_fg, s:vim_bg, s:bold . s:italic)
-call s:HL('htmlBoldUnderlineItalic', s:vim_fg, s:vim_bg, s:bold . s:underline . s:italic)
+call s:HL('htmlBold', s:vim_fg, s:none, s:bold)
+call s:HL('htmlBoldUnderline', s:vim_fg, s:none, s:bold . s:underline)
+call s:HL('htmlBoldItalic', s:vim_fg, s:none, s:bold . s:italic)
+call s:HL('htmlBoldUnderlineItalic', s:vim_fg, s:none, s:bold . s:underline . s:italic)
 
-call s:HL('htmlUnderline', s:vim_fg, s:vim_bg, s:underline)
-call s:HL('htmlUnderlineItalic', s:vim_fg, s:vim_bg, s:underline . s:italic)
-call s:HL('htmlItalic', s:vim_fg, s:vim_bg, s:italic)
+call s:HL('htmlUnderline', s:vim_fg, s:none, s:underline)
+call s:HL('htmlUnderlineItalic', s:vim_fg, s:none, s:underline . s:italic)
+call s:HL('htmlItalic', s:vim_fg, s:none, s:italic)
 
 " }}}
 " Xml: {{{
