@@ -448,6 +448,22 @@ call s:HL('GruvboxAquaBold', s:aqua, s:none, s:bold)
 call s:HL('GruvboxOrange', s:orange)
 call s:HL('GruvboxOrangeBold', s:orange, s:none, s:bold)
 
+" Extra neutral colors
+call s:HL('GruvboxRedN', s:gb.neutral_red)
+call s:HL('GruvboxRedNBold', s:gb.neutral_red, s:none, s:bold)
+call s:HL('GruvboxGreenN', s:gb.neutral_green)
+call s:HL('GruvboxGreenNBold', s:gb.neutral_green, s:none, s:bold)
+call s:HL('GruvboxYellowN', s:gb.neutral_yellow)
+call s:HL('GruvboxYellowNBold', s:gb.neutral_yellow, s:none, s:bold)
+call s:HL('GruvboxBlueN', s:gb.neutral_blue)
+call s:HL('GruvboxBlueNBold', s:gb.neutral_blue, s:none, s:bold)
+call s:HL('GruvboxPurpleNBold', s:gb.neutral_purple, s:none, s:bold)
+call s:HL('GruvboxPurpleN', s:gb.neutral_purple)
+call s:HL('GruvboxAquaN', s:gb.neutral_aqua)
+call s:HL('GruvboxAquaNBold', s:gb.neutral_aqua, s:none, s:bold)
+call s:HL('GruvboxOrangeN', s:gb.neutral_orange)
+call s:HL('GruvboxOrangeNBold', s:gb.neutral_orange, s:none, s:bold)
+
 call s:HL('GruvboxRedSign', s:red, s:sign_column, s:invert_signs)
 call s:HL('GruvboxGreenSign', s:green, s:sign_column, s:invert_signs)
 call s:HL('GruvboxYellowSign', s:yellow, s:sign_column, s:invert_signs)
@@ -679,8 +695,49 @@ if has("spell")
 endif
 
 " }}}
+" Diagnostics: {{{
+
+if has('nvim')
+  hi! link DiagnosticError GruvboxRedBold
+  hi! link DiagnosticWarn GruvboxYellowBold
+  hi! link DiagnosticInfo GruvboxBlueBold
+  hi! link DiagnosticHint GruvboxFg3
+  hi! link DiagnosticOk GruvboxGreenBold
+endif
+
+" }}}
+" Lsp: {{{
+
+if has('nvim')
+  hi! link @lsp.type.namespace GruvboxFg3
+  hi! link @lsp.type.variable GruvboxFg1
+  hi! link @lsp.type.variable GruvboxFg1
+  hi! link @lsp.typemod.variable.readonly GruvboxFg2
+  hi! link @lsp.typemod.parameter.readonly GruvboxBlueN
+  hi! link @lsp.typemod.function.readonly GrubvoxGreenNBold
+  hi! link @lsp.typemod.method.readonly GruvboxGreenNBold
+endif
+
+" }}}
 
 " Plugin specific -------------------------------------------------------------
+" Treesitter: {{{
+
+if has('nvim')
+  highlight! link @namespace GruvboxFg3
+  highlight! link @variable GruvboxFg1
+endif
+
+" }}}
+" Telescope: {{{
+
+if has('nvim')
+  hi! link TelescopeBorder GruvboxFg4
+  call s:HL('TelescopeSelectionCaret', s:blue, s:bg3)
+  call s:HL('TelescopeTitle', s:fg4, s:none, s:bold)
+endif
+
+" }}}
 " EasyMotion: {{{
 
 hi! link EasyMotionTarget Search
@@ -990,6 +1047,10 @@ hi! link vimSetSep GruvboxFg3
 hi! link vimSep GruvboxFg3
 hi! link vimContinue GruvboxFg3
 
+if has('nvim')
+  hi! link @variable.builtin.vim vimOption
+endif
+
 " }}}
 " Clojure: {{{
 
@@ -1046,6 +1107,20 @@ hi! link pythonDot GruvboxFg3
 hi! link pythonConditional GruvboxRed
 hi! link pythonRepeat GruvboxRed
 hi! link pythonDottedName GruvboxGreenBold
+
+if has('nvim')
+  hi! link @attribute.builtin.python pythonBuiltin
+  hi! link @variable.builtin.python pythonBuiltin
+
+  hi! link @attribute.python pythonDecorator
+
+  hi! link @function.python GruvboxAquaBold
+  hi! link @function.call.python GruvboxAqua
+  hi! link @method.python GruvboxAquaNBold
+  hi! link @method.call.python GruvboxAquaN
+
+  hi! link @include.python pythonInclude
+endif
 
 " }}}
 " CSS: {{{
@@ -1356,6 +1431,27 @@ hi! link markdownUrlTitleDelimiter GruvboxGreen
 
 call s:HL('markdownLinkText', s:gray, s:none, s:underline)
 hi! link markdownIdDeclaration markdownLinkText
+
+if has('nvim')
+  hi! link @punctuation.bracket.markdown_inline NONE
+
+  hi! link @text.uri.markdown_inline markdownUrl
+  hi! link @text.literal.markdown_inline markdownCode
+  hi! link @text.literal.block.markdown markdownCodeBlock
+  hi! link @text.reference.markdown_inline markdownLinkText
+  hi! link @text.title.1.markdown markdownH1
+  hi! link @text.title.1.marker.markdown markdownH1Delimiter
+  hi! link @text.title.2.markdown markdownH2
+  hi! link @text.title.2.marker.markdown markdownH2Delimiter
+  hi! link @text.title.3.markdown markdownH3
+  hi! link @text.title.3.marker.markdown markdownH3Delimiter
+  hi! link @text.title.4.markdown markdownH4
+  hi! link @text.title.4.marker.markdown markdownH4Delimiter
+  hi! link @text.title.5.markdown markdownH5
+  hi! link @text.title.5.marker.markdown markdownH5Delimiter
+  hi! link @text.title.6.markdown markdownH6
+  hi! link @text.title.6.marker.markdown markdownH6Delimiter
+endif
 
 " }}}
 " Haskell: {{{
