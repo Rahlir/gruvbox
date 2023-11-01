@@ -726,6 +726,8 @@ endif
 if has('nvim')
   highlight! link @namespace GruvboxFg3
   highlight! link @variable GruvboxFg1
+  " To differentiate html attribute from tag definition
+  highlight! link @tag.attribute Type
 endif
 
 " }}}
