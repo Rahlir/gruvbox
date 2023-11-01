@@ -1406,6 +1406,12 @@ hi! link scalaInterpolation GruvboxAqua
 
 call s:HL('markdownItalic', s:fg3, s:none, s:italic)
 
+if exists('g:gruvbox_markdown_ignore_errors')
+  if g:gruvbox_markdown_ignore_errors == 1
+    hi! link markdownError GruvboxFg1
+  endif
+endif
+
 hi! link markdownH1 GruvboxGreenBold
 hi! link markdownH2 GruvboxGreenBold
 hi! link markdownH3 GruvboxYellowBold
